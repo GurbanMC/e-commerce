@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('category_id');
+            $table->unsignedInteger('category_id')->index();
             $table->foreign('category_id')->references('id')->on('categories')->cascadeOnDelete();
-            $table->unsignedBigInteger('brand_id');
+            $table->unsignedBigInteger('brand_id')->index();
             $table->foreign('brand_id')->references('id')->on('brands')->cascadeOnDelete();
             $table->string('code')->index();
             $table->string('name_tm');
@@ -32,6 +32,7 @@ return new class extends Migration
             $table->unsignedFloat('discount_percent')->default(0);
             $table->dateTime('discount_start');
             $table->dateTime('discount_end');
+            $table->unsignedBigInteger('description')->nullable();
             $table->unsignedInteger('sold');
             $table->unsignedInteger('favorites');
             $table->unsignedInteger('viewed');
