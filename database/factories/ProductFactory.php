@@ -37,7 +37,7 @@ class ProductFactory extends Factory
         $nameEn = null;
         $fullNameTm = $brand->name . ' '
             . $nameTm . ' '
-            .
+            . $category->product_name_tm
         return [
 
         ];

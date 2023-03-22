@@ -17,30 +17,33 @@ class CategorySeeder extends Seeder
     {
         $objs = [
             ['name_tm' => 'Egin-eşik', 'name_en' => null, [
-                ['name_tm' => 'Jempir', 'name_en' => null],
-                ['name_tm' => 'Jempir', 'name_en' => null],
-                ['name_tm' => 'Köýnek', 'name_en' => null],
-                ['name_tm' => 'Futbolka', 'name_en' => null],
-                ['name_tm' => 'Balak', 'name_en' => null],
+                ['Jempirler', null, 'Jempir', null],
+                ['Köýnekler', null, 'Köýnek', null],
+                ['Futbolkalar', null, 'Futbolka', null],
+                ['Balaklar', null, 'Balak', null],
+                ['Paltolar', null, 'Palto', null],
+                ['Joraplar', null, 'Jorap', null],
             ]],
-            ['name_tm' => 'Aýakgap', 'name_en' => null, [
-                ['name_tm' => 'Sport Aýakgap', 'name_en' => null],
-                ['name_tm' => 'Klasik Aýakgap', 'name_en' => null],
-                ['name_tm' => 'Şypbyklar', 'name_en' => null],
-            ]]
+            ['Aýakgap', null, [
+                ['Sport Aýakgaplar', null, 'Sport Aýakgap', null],
+                ['Ädikler', null, 'Ädik', null],
+                ['Şypbyklar', null, 'Şypbyk', null],
+            ]],
         ];
 
         for ($i = 0; $i < count($objs); $i++) {
             $category = Category::create ([
-                'name_tm' => $objs[$i]['name_tm'],
-                'name_en' => $objs[$i]['name_en'],
+                'name_tm' => $objs[$i][0],
+                'name_en' => $objs[$i][1],
                 'sort_order' => $i + 1,
             ]);
             for ($j = 0; $j < count($objs[$i][2]); $j++) {
                 Category::create([
                     'parent_id' => $category->id,
-                    'name_tm' => $objs[$i][2][$j]['name_tm'],
-                    'name_en' => $objs[$i][2][$j]['name_en'],
+                    'name_tm' => $objs[$i][2][$j][0],
+                    'name_en' => $objs[$i][2][$j][1],
+                    'product_name_tm' => $objs[$i][2][$j][2],
+                    'product_name_en' => $objs[$i][2][$j][3],
                     'sort_order' => $j + 1,
                 ]);
             }

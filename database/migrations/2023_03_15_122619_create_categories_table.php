@@ -19,6 +19,8 @@ return new class extends Migration
             $table->foreign('parent_id')->references('id')->on('categories')->nullOnDelete();
             $table->string('name_tm');
             $table->string('name_en')->nullable();
+            $table->string('product_name_tm')->nullable();
+            $table->string('product_name_en')->nullable();
             $table->string('image')->nullable();
             $table->string('slug')->unique();
             $table->unsignedInteger('sort_order')->default(1);

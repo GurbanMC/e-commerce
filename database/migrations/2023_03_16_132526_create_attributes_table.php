@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name_tm');
             $table->string('name_en');
+            $table->boolean('product_name')->default(0);
             $table->unsignedInteger('sort_order')->default(1);
         });
     }
