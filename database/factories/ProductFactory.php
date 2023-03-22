@@ -36,6 +36,7 @@ class ProductFactory extends Factory
         $nameTm = fake()->company;
         $nameEn = null;
         $fullNameTm = $brand->name . ' '
+            . isset($color) ? $color->name_tm
             . $nameTm . ' '
             . $category->product_name_tm
         return [
