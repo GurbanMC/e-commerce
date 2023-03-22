@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Location;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,11 @@ class CustomerAddressFactory extends Factory
      */
     public function definition()
     {
+        $location = Location::inRandomOrder()->first();
+
         return [
-            //
+            'location_id' => $location->id,
+            'address' => fake()->address(),
         ];
     }
 }
