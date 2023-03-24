@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('brand_id')->index();
             $table->foreign('brand_id')->references('id')->on('brands')->cascadeOnDelete();
             $table->string('code')->index();
-            $table->string('name_tm');
+            $table->string('name_tm')->nullable();
             $table->string('name_en')->nullable();
             $table->string('full_name_tm');
             $table->string('full_name_en')->nullable();
